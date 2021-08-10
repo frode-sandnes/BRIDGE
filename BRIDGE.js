@@ -105,6 +105,8 @@ function encode()
 		return false;
 		}
 	var digits = document.forms["encodeform"]["digits"].value;
+	var anonymityEstimate = "<p><b>WARNING</b>: The population these participants are recruited from should comprise more than <b>"+(5*Math.pow(10,digits)).toLocaleString()+"</b> individuals to ensure a mimum level of anonymity (k-anonymity = 5). Population could here refer to a country, region, particular institution, or similar, where there are publicly available list of names such as phone directories. Note that this is a probabilistic estimate only.<p>";
+
 	
 	// check if ID-list length matches new coding
 	if (!!jsn)
@@ -161,14 +163,14 @@ function encode()
 		// add a new blank indirect id for for the new salt
 		IDs.set(saltedID,[]);	
 		// output the extra alternative
-		document.getElementById("participantid").innerHTML = "<p style=\"color:rgb(0,128,0);\">If existing particpant id: "+id+" with no challenge</p>" +output+ "<p style=\"color:rgb(0,0,255);\">If new particpant id: "+saltedID+" with challenge <b>"+salt+"</b>. Memorize this challenge. Remember to copy and store the updated list.</p>";			
+		document.getElementById("participantid").innerHTML = "<p style=\"color:rgb(0,128,0);\">If existing particpant id: "+id+" with no challenge</p>" +output+ "<p style=\"color:rgb(0,0,255);\">If new particpant id: "+saltedID+" with challenge <b>"+salt+"</b>. Memorize this challenge. Remember to copy and store the updated list.</p>"+anonymityEstimate;			
 		// set json background colour to indicate change
 		document.getElementById("listid").style.backgroundColor='lightblue';
 		}
 	else
 		{
 		IDs.set(id,[]);				
-		document.getElementById("participantid").innerHTML = "<p style=\"color:rgb(0,0,255);\">New particpant id: "+id+". Remember to copy and store the updated list.</p>";		
+		document.getElementById("participantid").innerHTML = "<p style=\"color:rgb(0,0,255);\">New particpant id: "+id+". Remember to copy and store the updated list.</p>"+anonymityEstimate;		
 		// set json background colour to indicate change		
 		document.getElementById("listid").style.backgroundColor='lightblue';
 		}
