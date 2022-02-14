@@ -4,7 +4,7 @@ Short anonymous linking IDs for small-sample experiments with snowball/increment
 This repository contains resrourses associated with the BRIDGE linking procedure.
 
 The resources include
-1) The brower tool implemented in javascript. A live version is available at https://www.cs.oslomet.no/~frodes/BRIDGE/
+1) The brower tool implemented in javascript. A live version is available at https://frode-sandnes.github.io/BRIDGE/
 
 The list of names used in the experiments can be found in the HIDE repository: https://github.com/frode-sandnes/HIDE
 
